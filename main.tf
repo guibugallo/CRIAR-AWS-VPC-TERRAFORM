@@ -9,19 +9,19 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "remote-state-gbugallo-bucket"
-    key    = "aws-vpc/terraform.tfstate"
-    region = "sa-east-1"
+    bucket = "o nome do seu bucket já existente aqui"
+    key    = "pasta/nome-do-arquivo"  #Recomendo utilizar o padrão Terraform sendo terraform.tfstate
+    region = "região que encontra-se seu bucket"
   }
 }
 
 provider "aws" {
   # Configuration options
-  region = "sa-east-1"
+  region = "região"
 
   default_tags {
     tags = {
-      owner      = "guiBugallo"
+      owner      = "exemplo"
       managed-by = "Terraform"
     }
   }
