@@ -2,7 +2,7 @@ resource "aws_vpc" "vpc" {
   cidr_block = "10.0.0.0/16"
 
   tags = {
-    Name = "vpc-curso-terraform"
+    Name = "nome-da-sua-vpc"
   }
 }
 
@@ -11,7 +11,7 @@ resource "aws_subnet" "subnet" {
   cidr_block = "10.0.1.0/24"
 
   tags = {
-    Name = "subnet-curso-terraform"
+    Name = "nome-da-sua-subnet"
   }
 }
 
@@ -19,11 +19,11 @@ resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    Name = "internetgateway-curso-terraform"
+    Name = "nome-da-sua-gateway"
   }
 }
 
-resource "aws_route_table" "rout_table" {
+resource "aws_route_table" "route_table" {
   vpc_id = aws_vpc.vpc.id
 
   route {
@@ -32,7 +32,7 @@ resource "aws_route_table" "rout_table" {
   }
 
   tags = {
-    Name = "route-table-terraform"
+    Name = "nome-da-sua-route-table"
   }
 }
 
@@ -42,7 +42,7 @@ resource "aws_route_table_association" "rta" {
 }
 
 resource "aws_security_group" "security_group" {
-  name        = "security-group-terraform"
+  name        = "nome-do-seu-security-group"
   description = "Permitir acesso na porta 22"
   vpc_id      = aws_vpc.vpc.id
 
@@ -62,6 +62,6 @@ resource "aws_security_group" "security_group" {
   }
 
   tags = {
-    Name = "security_group-terraform"
+    Name = "nome-do-seu-security-group"
   }
 }
